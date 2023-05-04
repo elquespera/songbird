@@ -1,0 +1,116 @@
+@use 'variables.scss' as vars;
+
+header, footer {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5em;  
+  padding: 1em;
+
+  background-color: var(--blur-color);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+}
+
+header {
+  height: var(--header-height);
+  gap: min(1.5em, 1.5vw);
+
+  justify-content: space-between;
+  .logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: auto;
+    font-size: clamp(1.2em, 4vw, 2em);
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Lato', sans-serif;
+    font-style: oblique;
+    filter: drop-shadow( 0px 0px 1px var(--yellow-shadow-color));
+    &::before {
+      content: '';
+      display: block;
+      width: 0.85em;
+      background: url('../assets/icons/favicon.svg') center no-repeat;
+      filter: invert(84%) sepia(12%) saturate(280%) hue-rotate(99deg) brightness(110%) contrast(87%);
+      margin-right: 0.15em;
+    }
+    .logo-song {
+      color: var(--highlight-color1);
+    }
+    .logo-bird {
+      color: var(--highlight-color2);
+    }
+    user-select: none;
+  }
+}
+
+.score {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  .score-value {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .score-plus {
+    position: absolute;
+    right: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    opacity: 0;
+
+    &.run-animation {
+      animation: score-animation 1s;
+      z-index: 999;
+    }
+  }
+}
+
+@keyframes score-animation {
+  from {
+    opacity: 1;
+    transform: translateY(300%);
+  }
+  to {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+footer {
+  height: var(--footer-height);
+  bottom: 0;
+  justify-content: space-around;
+  .year {
+    margin-right: auto;
+    opacity: 0.8;
+    user-select: none;
+  }
+}
+
+@media screen and (min-width: vars.$mobile-breakpoint)  {
+  header, footer {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  
+  header {
+    width: var(--header-max-width);
+    width: max-content;
+    border-radius: 0 0 0.5em 0.5em;
+    .logo {
+          margin-right: 1em;
+    }
+  }
+
+  footer {
+    width: var(--footer-max-width);
+    border-radius: 0.5em 0.5em 0 0;
+  }
+}
+

@@ -1,0 +1,116 @@
+.audio-player {
+  display: flex;
+  align-items: stretch;
+  gap: 1em;
+
+  .play-button {
+    width: 3em;
+    height: 3em;
+    background-image: url('../assets/icons/play-colored.svg');
+
+    &.playing {
+      background-image: url('../assets/icons/pause-colored.svg');
+    }
+  }
+
+  .seek-wrapper {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    .seek-input {
+      display: inline-block;
+      min-width: 5em;
+      flex-grow: 1;
+    }
+    .seek-current, .seek-duration {
+      position: absolute;
+      color: var(--highlight-color1);
+      font-size: 0.8em;
+      bottom: -0.7em;
+    }
+    .seek-duration {
+      right: 0;
+    }
+  }
+
+  .volume-wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 0.5em;
+    justify-content: flex-end;
+
+    .volume-input {
+      width: 3em;
+      float: left;
+    }
+    .volume-button {
+      background-image: url('../assets/icons/volume.svg');
+      transition: filter 0.3s;
+      
+      &.mute {
+        background-image: url('../assets/icons/mute.svg');
+      }
+    }
+    .volume-current {
+      position: absolute;
+      color: var(--highlight-color1);
+      font-size: 0.8em;
+      left: 0;
+      bottom: -0.7em;
+    }          
+  }
+
+}
+
+
+.range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  &:focus {
+    outline: none;      
+  }
+
+  /* slider track */
+  &::-webkit-slider-runnable-track {
+    background-color: var(--highlight-color1);
+    border-radius: 0.5rem;
+    height: var(--range-input-size);
+  }
+  &::-moz-range-track {
+    background-color: var(--highlight-color1);
+    border-radius: 0.5rem;
+    height: var(--range-input-size);
+  }
+
+    /* slider thumb */
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -4px;
+    background-color: var(--highlight-color2);
+    border-radius: 0.5rem;
+    height: var(--range-input-thumb-size);
+    width: var(--range-input-thumb-size);
+  }
+  &::-moz-range-thumb {
+    background-color: var(--highlight-color2);
+    border: none;
+    border-radius: 0.5rem;
+    height: var(--range-input-thumb-size);
+    width: var(--range-input-thumb-size);
+  }
+
+    /* slider thumb focused */
+  &:focus::-webkit-slider-thumb, &:hover::-webkit-slider-thumb {
+    filter: saturate(5) var(--yellow-shadow);
+  }
+  &:focus::-moz-range-thumb, &:hover::-moz-range-thumb {
+    filter: saturate(5) var(--yellow-shadow);
+  }
+}
+
+

@@ -1,0 +1,19 @@
+@use 'variables.scss' as vars;
+
+.quiz-page {
+  gap: 1em;
+  .quiz-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .next-button {
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: vars.$mobile-breakpoint)  {
+  .quiz-page {
+    width: clamp(34rem, 85vw, 1180px);
+  }
+}

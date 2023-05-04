@@ -1,0 +1,29 @@
+@use 'variables.scss' as vars;
+
+.menu {
+  display: flex;
+  gap: min(0.8em, 3vw);
+  a {
+    position: relative;
+    &.active::before {
+      content: '';
+      position: absolute;
+      bottom: -0.3em;
+      right: 0;
+      left: 0;
+      height: 0.07em;
+
+      background-color: var(--font-color);
+    }
+  }
+}
+
+@media screen and (max-width: vars.$mobile-breakpoint)  {
+  .menu {
+    a {
+      span {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.bird-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  .info-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 2em;
+    row-gap: 1em;
+    img {
+      width: 220px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.5em;
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 0.5em;
+
+      .common-name {
+        font-size: 1.5em;
+      }
+      .scientific-name {
+        font-size: 1.2em;
+        font-style: italic;
+      }
+    }
+  }
+  .description {
+    padding-top: 2em;
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+}

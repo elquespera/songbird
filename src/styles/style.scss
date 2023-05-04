@@ -1,0 +1,133 @@
+// Imports
+@use 'variables';
+@use 'pages';
+@use 'quiz-page';
+@use 'switch';
+@use 'animated-birds';
+@use 'header-footer';
+@use 'menu';
+@use 'bird-card';
+@use 'player';
+@use 'questions-list';
+@use 'answers';
+
+// Reset
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+}
+
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body, main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  text-decoration: none;
+  color: var(--font-color);
+  opacity: 0.8;
+  transition: opacity 0.3s, filter 0.3s;
+  cursor: pointer;
+
+  img {
+    height: 1.3em;
+    filter: invert(1);
+  }
+
+  &:hover, &.active {
+    opacity: 1;
+    filter: var(--yellow-shadow);
+  }  
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  background-color: var(--bg-color);
+  padding: min(1.5em, 4vw);
+  border-radius: 0.5em;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  &.text-button {
+    color: var(--font-color);
+    background-color: var(--highlight-color3);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    transition: filter 0.3s;
+    font-size: clamp(1em, 3vw, 1.5em);
+    
+    &:hover, &:focus {
+      filter: saturate(3);
+    }
+  }
+  
+  &.icon-button {
+    width: 1.5em;
+    height: 1.5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: filter 0.3s;
+
+    &:hover, &:focus {
+      filter: saturate(5) var(--yellow-shadow);
+    }
+  }
+
+  &:disabled, &:hover:disabled, &:focus:disabled {
+    filter: grayscale(1);
+    cursor: auto;
+  }  
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: var(--scrollbar-size);
+  &:hover {
+    background-color: var(--scrollbar-hover-color);
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}

@@ -1,0 +1,67 @@
+.aminated-bird {
+  --size: min(20vw, 100px); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+
+  &.robin {
+    --duration: 30s;    
+    position: absolute;
+    left: 0;
+    bottom: var(--footer-height);
+    width: calc(1.5 * var(--size));
+    height: var(--size);
+    background-image: url('../assets/images/robin1.png');
+    animation: 
+      robin-bg var(--duration) infinite steps(1);
+  }
+
+  &.swallow {
+    --duration: 10s;
+    position: absolute;
+    top: 25%;
+    right: 0;
+    transform: translateX(-400%);
+    width: var(--size);
+    height: var(--size);
+    background-image: url('../assets/images/swallow1.png');
+    animation: 
+      swallow-bg var(--duration) infinite steps(1);    
+  }
+}
+
+@keyframes robin-bg {
+  25% {
+    background-image: url('../assets/images/robin2.png');
+    transform: translateX(25%);    
+  }
+  30% {
+    background-image: url('../assets/images/robin3.png');
+    transform: translateX(50%);
+  }
+  50% {
+    background-image: url('../assets/images/robin4.png');
+    transform: translate(100%, -25%);
+  }
+  80% {
+    background-image: url('../assets/images/robin5.png');
+  }
+}
+
+@keyframes swallow-bg {
+  10% {
+    background-image: url('../assets/images/swallow2.png');
+    transform: translateX(-200%);
+  }
+  15% {
+    background-image: url('../assets/images/swallow3.png');
+    transform: translateX(-100%);
+  }
+  20% {
+    background-image: url('../assets/images/swallow4.png');
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10000%);
+  }
+}

@@ -1,0 +1,77 @@
+@use 'variables.scss' as vars;
+
+.answers {
+  display: grid;
+  gap: 1em;
+  .answer-list {
+    padding: 0;
+    align-self: flex-start;
+    li {
+      position: relative;
+      border-bottom: 1px solid var(--border-color);
+      padding-left: 1em;
+      a {
+        padding: 0.8em 1em 0.8em 1.6em;
+        flex-grow: 1;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+      &:hover {
+        background-color: var(--border-color);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        width: 0.6em;
+        height: 0.6em;
+        border-radius: 50%;
+        background-color: var(--neutral-answer-color);
+      }
+      &.right::before {
+        background-color: var(--right-answer-color);
+      }
+      &.wrong::before {
+        background-color: var(--wrong-answer-color);
+      }
+    }
+  }
+  .answer-wrapper {
+    align-self: stretch;
+    .empty-bird-card {
+      height: 100%;
+    }
+    .bird-card {
+      height: 100%;
+      .info-wrapper {
+        img {
+          width: 170px;
+          height: 120px;
+        }
+        .info {
+          .common-name {
+            font-size: 1.2em;
+          }
+          .scientific-name {
+            font-size: 1em;
+          }
+        }
+      }
+      .volume-wrapper {
+        display: none;
+      }
+      .description {
+        padding-top: 0.5em
+      }
+    }
+  }
+}
+
+@media screen and (min-width: vars.$mobile-breakpoint)  {
+  .answers {
+    grid-template-columns: 2fr 3fr;
+  }
+}

@@ -1,0 +1,31 @@
+$mobile-breakpoint: 42rem;
+
+body {
+  --bg-color: #333;
+  --font-color: white;
+  --border-color: #777; 
+  --blur-color: rgba(0, 0, 0, 0.2);
+  --highlight-color1: #cde8db; 
+  --highlight-color2: #d9df36;
+  --highlight-color3: #1a8a14;
+  --yellow-shadow: drop-shadow( 0px 0px 1px rgba(255, 255, 0, 0.7));
+
+  --neutral-answer-color: #666;
+  --wrong-answer-color: crimson;
+  --right-answer-color: forestgreen; 
+
+  --scrollbar-color: var(--highlight-color1);
+  --scrollbar-hover-color: #e0fff4;
+  --scrollbar-size: 0.3em;
+
+  --header-height: 4rem;
+  --header-max-width: 36rem;
+  --footer-height: 3rem;
+  --footer-max-width: 20rem;
+
+  --switch-bg-color: rgba(0, 0, 0, 0.5);
+  --switch-checked-bg-color: rgba(0, 0, 0, 0.9);
+
+  --range-input-size: 0.3rem;
+  --range-input-thumb-size: 1rem;
+}

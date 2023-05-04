@@ -1,0 +1,16 @@
+.switch {
+  display: flex;
+  border-radius: 0.3em;
+  background-color: var(--switch-bg-color);
+  overflow: hidden;
+
+  li {
+    a {
+      padding: 0.3em 0.4em;
+    }
+
+    &.checked {
+      background-color: var(--switch-checked-bg-color);     
+    }
+  }
+}

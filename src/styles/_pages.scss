@@ -1,0 +1,83 @@
+@use 'variables.scss' as vars;
+
+main {
+  position: relative;
+  background-color: #cde8db;
+  background-image: url('../assets/images/welcome-background.jpg');
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
+
+  .pages {
+    --padding: 1em;
+    z-index: 1;
+    padding: var(--padding);
+    margin: var(--padding);
+    background-color: var(--blur-color);
+    backdrop-filter: blur(5px);    
+    .pages-wrapper {
+      overflow: auto;
+      width: 100vw;
+      max-height: calc(100vh - var(--header-height) - var(--footer-height) - 4 * var(--padding));
+      max-width: calc(100vw - 2 * var(--padding));
+    }
+  }
+}
+
+.page {
+  display: none;
+  flex-direction: column;
+
+  &.library-page {
+    .library-wrapper {
+      display: grid;
+      gap: 1em;
+    }
+  }
+
+  &.results-page, &.welcome-page {
+    align-items: center;
+    gap: 2em;
+    padding-bottom: 1.5em;
+
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+    }
+  }
+
+  .page-title {
+    font-size: clamp(2em, 4vw, 3em);
+    text-align: center;
+  }
+
+
+  &.visible {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: vars.$mobile-breakpoint)  {
+  main {
+    .pages {
+      border-radius: 0.5em;
+      .pages-wrapper {
+        width: auto;
+        max-width: min(1200px, calc(100vw - 4 * var(--padding)));
+      }
+    }
+  }
+
+  .card-wrapper {
+    width: clamp(34rem, 60vw, 1200px);
+  }  
+
+  .page.library-page .library-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
